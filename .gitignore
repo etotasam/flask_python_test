@@ -1,4 +1,6 @@
 flask/db/*
 
+__pycache__/
+
 # ログはpushしない
 log/
