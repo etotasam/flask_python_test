@@ -1,5 +1,4 @@
-flask/app.log
 flask/db/*
 
 # ログはpushしない
-log/*
+log/
