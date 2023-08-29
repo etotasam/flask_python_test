@@ -13,8 +13,8 @@ log_directory = "log"
 log_dir_path = os.path.join(basedir, log_directory)
 if not os.path.exists(log_dir_path):
     os.makedirs(log_dir_path)
-
-logging.basicConfig(filename=f'{log_dir_path}/app.log', level=logging.DEBUG)
+print(f'テストファイル名:{log_dir_path}')
+logging.basicConfig(filename=f'{log_directory}/app.log', level=logging.DEBUG)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{os.path.join(basedir, "db/todo.db")}'
 
