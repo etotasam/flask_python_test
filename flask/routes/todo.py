@@ -1,12 +1,34 @@
+from pathlib import Path
 from flask import Blueprint, render_template, request, redirect, url_for
-from models import db, Todo
-from scraping_yahoo import test
+from models import Todo, db
+import logging
+import datetime
+import pytz
 
 todo_bp = Blueprint('todo', __name__)
+
+jst = pytz.timezone('Asia/Tokyo')
+current_date = datetime.datetime.now(jst).strftime('%Y%m%d')
+
+# logを保存するディレクトリが存在しない時は作成
+directory_name = 'log'
+log_directory = Path(directory_name)
+if not log_directory.exists():
+    log_directory.mkdir()
+
+log_handler = logging.FileHandler(f'{directory_name}/{current_date}.log')
+log_handler.setLevel(logging.INFO)
+log_format = logging.Formatter('%(asctime)s : %(levelname)s : %(message)s')
+log_handler.setFormatter(log_format)
+logger = logging.getLogger('my_logger')
+logger.addHandler(log_handler)
+
 
 @todo_bp.route('/')
 def index():
     todos = Todo.query.all()
+    logging.debug('いんでっくす')
+    logger.info('test_いんふぉ')
     return render_template('index.html', todos=todos)
 
 @todo_bp.route('/add', methods=['POST'])
@@ -30,9 +52,3 @@ def delete(todo_id):
     db.session.delete(todo)
     db.session.commit()
     return redirect(url_for('todo.index'))
-
-
-@todo_bp.route('/test', methods=['GET'])
-def get_data():
-    img_src_list = test()
-    return render_template('saerce.html', data=img_src_list)
