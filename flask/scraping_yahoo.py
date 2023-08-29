@@ -3,8 +3,6 @@ import requests
 from bs4 import BeautifulSoup
 import logging
 
-logging.basicConfig(filename='app.log', level=logging.DEBUG)
-app = Flask(__name__)
 
 headers_pc = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 13.2.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36", }
 

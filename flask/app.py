@@ -1,22 +1,28 @@
 import os
-from flask import Flask, render_template, request, redirect, url_for
-from flask_sqlalchemy import SQLAlchemy
-from scraping_yahoo import test
+from flask import Flask
 import logging
 from flask_migrate import Migrate
+# ! module
 from routes.todo import todo_bp
+from routes.product import product_bp
 from models import db
 
 app = Flask(__name__)
-logging.basicConfig(filename='app.log', level=logging.DEBUG)
-
 basedir = os.path.abspath(os.path.dirname(__file__))
+log_directory = "log"
+log_dir_path = os.path.join(basedir, log_directory)
+if not os.path.exists(log_dir_path):
+    os.makedirs(log_dir_path)
+
+logging.basicConfig(filename=f'{log_dir_path}/app.log', level=logging.DEBUG)
 
 app.config['SQLALCHEMY_DATABASE_URI'] = f'sqlite:///{os.path.join(basedir, "db/todo.db")}'
 
 migrate = Migrate(app, db)
 db.init_app(app)
+# ! Blueprintを設定
 app.register_blueprint(todo_bp)
+app.register_blueprint(product_bp)
 
 
 if __name__ == '__main__':
