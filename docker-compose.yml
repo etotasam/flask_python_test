@@ -1,0 +1,13 @@
+version: "3"
+services:
+  app:
+    container_name: "flask"
+    # restart: always
+    build: .
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./flask:/flask
+    working_dir: "/flask"
+    tty: true
+    command: python app.py

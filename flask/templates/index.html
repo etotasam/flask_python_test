@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>やらなきゃならない事リスト</title>
+</head>
+
+<body>
+  <h1>やらなきゃならない事リスト</h1>
+  <a href="/test"><button>取得</button></a>
+
+  <form method="POST" action="/add">
+    <input type="text" name="content" placeholder="Add a new todo">
+    <button type="submit">Add</button>
+  </form>
+  <ul>
+    {% for todo in todos %}
+    <li>
+      <input type="checkbox" {% if todo.done %}checked{% endif %}
+        onclick="window.location.href='/complete/{{ todo.id }}'">
+      {{ todo.content }}
+      <a href="/delete/{{ todo.id }}">削除</a>
+    </li>
+    {% endfor %}
+  </ul>
+</body>
+
+</html>
