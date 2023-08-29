@@ -20,3 +20,10 @@ INFO:werkzeug: * Detected change in '/flask/app.py', reloading
 INFO:werkzeug: * Restarting with stat
 WARNING:werkzeug: * Debugger is active!
 INFO:werkzeug: * Debugger PIN: 438-358-663
+DEBUG:root:いんでっくす
+INFO:my_logger:test_いんふぉ
+INFO:werkzeug:172.25.0.1 - - [29/Aug/2023 20:14:16] "GET / HTTP/1.1" 200 -
+INFO:werkzeug:172.25.0.1 - - [29/Aug/2023 20:14:18] "[32mGET /delete/2 HTTP/1.1[0m" 302 -
+DEBUG:root:いんでっくす
+INFO:my_logger:test_いんふぉ
+INFO:werkzeug:172.25.0.1 - - [29/Aug/2023 20:14:18] "GET / HTTP/1.1" 200 -
