@@ -8,7 +8,37 @@
 </head>
 
 <body>
-  <h1>データ</h1>
+  <h1>【アークテリクス グランヴィル 25 Black】の在庫チェック</h1>
+  <div>
+    {% if arcteryx %}
+
+    {% if arcteryx.stock_bool %}
+    <h2 style="background-color: coral;">アークテリクス公式オンラインストア</h2>
+    <a href={{ arcteryx.url }} target="_blank">{{ arcteryx.stock }}</a>
+    {% else %}
+    <h2>アークテリクス公式オンラインストア</h2>
+    <p>{{ arcteryx.stock }}</p>
+    {% endif %}
+
+    {% endif %}
+  </div>
+
+  <div>
+    {% if sunsay_shop %}
+
+    {% if sunsay_shop.stock_bool %}
+    <h2 style="background-color: coral;">Outdoor Style サンデーマウンテン</h2>
+    <a href={{ sunsay_shop.url }} target="_blank">{{ sunsay_shop.stock }}</a>
+    {% else %}
+    <h2>Outdoor Style サンデーマウンテン</h2>
+    <p>{{ sunsay_shop.stock }}</p>
+    {% endif %}
+
+    {% endif %}
+  </div>
+
+
+  <!-- <h2>ヤフオク</h2>
   {% if data %}
   {% for item in data %}
   <p>{{item.title }}</p>
@@ -16,7 +46,7 @@
   {% endfor %}
   {% else %}
   <p>でーたなし</p>
-  {% endif %}
+  {% endif %} -->
 </body>
 
 </html>

@@ -6,7 +6,7 @@ import logging
 
 headers_pc = {"User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 13.2.1) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/111.0.0.0 Safari/537.36", }
 
-target_url = 'https://auctions.yahoo.co.jp/search/search?p=%E3%82%A2%E3%83%BC%E3%82%AF%E3%83%86%E3%83%AA%E3%82%AF%E3%82%B9&va=%E3%82%A2%E3%83%BC%E3%82%AF%E3%83%86%E3%83%AA%E3%82%AF%E3%82%B9&is_postage_mode=1&dest_pref_code=13&exflg=1&b=1&n=50&s1=new&o1=d'
+target_url = 'https://auctions.yahoo.co.jp/search/search/%E3%82%A2%E3%83%BC%E3%82%AF%E3%83%86%E3%83%AA%E3%82%AF%E3%82%B9%20%E3%83%AA%E3%83%A5%E3%83%83%E3%82%AF/0/?rs=3'
 
 def get_bid_num(product: BeautifulSoup):
     bid_num = int(product.find('span', {'class':'Product__bid'}).text)
