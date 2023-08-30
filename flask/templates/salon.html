@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>美容室情報</title>
+</head>
+
+<body>
+  <h1>テスト</h1>
+  {% if local_list %}
+  {% for local in local_list %}
+  <div>
+    <a href={{ local.url }}>{{ local.name }}</a>
+  </div>
+  {% endfor %}
+  {% endif %}
+</body>
+
+</html>

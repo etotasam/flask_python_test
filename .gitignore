@@ -5,3 +5,6 @@ __pycache__/
 # ログはpushしない
 log/
 .log
+
+
+get_money.py
