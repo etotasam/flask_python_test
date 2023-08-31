@@ -11,8 +11,15 @@
   <h1>テスト</h1>
   {% if local_list %}
   {% for local in local_list %}
-  <div>
-    <a href={{ local.url }}>{{ local.name }}</a>
+  <div style="margin: 10px; background-color:wheat;">
+    <a href={{ local.page_url }} target="_blank">{{ local.shop_name }}</a>
+    <p>{{ local.number }}</p>
+    <p>{{ local.address }}</p>
+    {% if local.website %}
+    <a href={{ local.website }} target="_blank">
+      ホームページ
+    </a>
+    {% endif %}
   </div>
   {% endfor %}
   {% endif %}
