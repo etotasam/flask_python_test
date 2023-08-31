@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>敗者</title>
+</head>
+
+<body>
+  <h1>デンタル</h1>
+  {% if data_list %}
+  {% for data in data_list %}
+  <div style="margin: 10px; background-color:wheat;">
+    <p>{{ data.name }}</p>
+    <p>☎:{{ data.phone }}</p>
+    <!-- 院長 -->
+    {% if data.director %}
+    <p>院長:{{ data.director }}</p>
+    {% else %}
+    <p>院長:記載なし</p>
+    {% endif %}
+
+    <!-- 診療項目 -->
+    <p>診療項目</p>
+    {% if data.medical_treatment_list %}
+    <ul>
+      {% for i in data.medical_treatment_list %}
+      <li>{{ i }}</li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p>記載なし</p>
+    {% endif %}
+
+    <!-- サービス -->
+    <p>サービス</p>
+    {% if data.service_list %}
+    <ul>
+      {% for i in data.service_list %}
+      <li>{{ i }}</li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p>記載なし</p>
+    {% endif %}
+
+  </div>
+  {% endfor %}
+  {% endif %}
+</body>
+
+</html>

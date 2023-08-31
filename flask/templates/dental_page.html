@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>敗者</title>
+</head>
+
+<body>
+  <h1>デンタル</h1>
+  {% if url_list %}
+  <ul>
+    {% for url in url_list %}
+    <li>
+      <a href="/get_dental/{{ loop.index }}" target="_blank">
+        <button>ページ{{ loop.index }}</button>
+      </a>
+    </li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+</body>
+
+</html>
